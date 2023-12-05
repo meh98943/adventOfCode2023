@@ -15,14 +15,14 @@ fun main() {
     val lines: List<String> = File("src/main/resources/input/day2_problem.txt").bufferedReader().readLines()
     lines.forEach {
         // Parse next game
-        //doProblem1(it)
+        //doProblem1_day2(it)
 
-        doProblem2(it)
+        doProblem2_day2(it)
     }
     println("Final $finalCount")
 }
 
-fun doProblem2(line: String) {
+fun doProblem2_day2(line: String) {
     var redMin = 0L
     var blueMin = 0L
     var greenMin = 0L
@@ -44,7 +44,7 @@ fun doProblem2(line: String) {
     finalCount += redMin * blueMin * greenMin
 }
 
-fun doProblem1(line: String) {
+fun doProblem1_day2(line: String) {
     val blueLimit = 14
     val greenLimit = 13
     val redLimit = 12
