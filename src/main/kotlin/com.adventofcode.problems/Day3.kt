@@ -15,6 +15,8 @@ fun main() {
     //25,311,067 not correct
     //19,062,549
 
+
+
     println("Final Total $finalTotal")
 }
 
@@ -25,8 +27,10 @@ fun doProblem2_day3(lines: List<String>) {
     lines.forEach { line ->
         val starMatches = reg.findAll(line).toList()
         if (starMatches.isEmpty()) {
+            i++
             return@forEach
         }
+        // We have all the stars in this line, let's find adjacent numbers!
         var starPositions = ArrayList<Int>()
         starMatches.forEach { star ->
             starPositions.add(star.range.first)
@@ -34,14 +38,14 @@ fun doProblem2_day3(lines: List<String>) {
         var numberMatchesLineAbove = ArrayList<MatchResult>()
         if (i > 0) {
             numberMatchesLineAbove = regDigits.findAll(lines[i - 1]).toList() as ArrayList<MatchResult>
-            println("Line above   " + lines[i - 1])
+            println("Current line number [$i]\nLine above   " + lines[i - 1])
         }
         val numberMatchesSameLine = regDigits.findAll(line).toList()
-        println("Current line $line")
+        println("Current line number [$i]\nCurrent line $line")
         var numberMatchesLineBelow = ArrayList<MatchResult>()
         if (i < lines.size - 1) {
             numberMatchesLineBelow = regDigits.findAll(lines[i + 1]).toList() as ArrayList<MatchResult>
-            println("Line below   " + lines[i + 1])
+            println("Current line number [$i]\nLine below   " + lines[i + 1])
         }
 
         starPositions.forEach { starPos ->

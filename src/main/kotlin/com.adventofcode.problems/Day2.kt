@@ -5,7 +5,7 @@ import java.io.File
 const val GREEN = "green"
 const val BLUE = "blue"
 const val RED = "red"
-val reg = "\\d+".toRegex()
+private val reg = "\\d+".toRegex()
 
 var finalCount = 0L
 var violatesConstraints = false
